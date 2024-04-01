@@ -1,0 +1,16 @@
+
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+ /* Body styling */
+
+ body {
+    margin-top: 70px;
+    background: #333;
+    color: #fff;
+  
+}
+button{
+    border-radius: 7px;
+    align-items: center;
+    font-weight: 25px;
+    font-size: 20px;
+}
