@@ -43,3 +43,27 @@ var typed = new Typed(".typing-2", {
     loop: true
 
 });
+
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        // Prevent the form from submitting and reloading the page
+        event.preventDefault();
+
+        // Display the pop-up message
+        document.getElementById('thankYouMessage').classList.remove('hidden');
+
+        // Submit the form asynchronously
+        var form = this;
+        var formData = new FormData(form);
+        var xhr = new XMLHttpRequest();
+        xhr.open(form.method, form.action);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                // Form submitted successfully, reload the page after 2 seconds
+                setTimeout(function() {
+                    window.location.reload();
+                }, 2000);
+            }
+        };
+        xhr.send(new URLSearchParams(formData).toString());
+    });
